@@ -30,7 +30,7 @@ class ChangeHandler extends ServerDataHandler[Server]{
       case Opcodes.CHANGE_STATUS =>
         val status: Byte = data getByte "arg"
         if(Profile.Status.isOneOf(status)){
-          prof.status = status
+          prof.setStatus(status)
           madeChange = true
         }
       case Opcodes.CHANGE_PIC =>
