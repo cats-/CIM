@@ -1,0 +1,8 @@
+<handlers>
+    <handler>cats.im.server.handler.RegisterHandler</handler>
+    <handler>cats.im.server.handler.LoginHandler</handler>
+    <handler>cats.im.server.handler.RequestResponseHandler</handler>
+    <handler>cats.im.server.handler.ChangeHandler</handler>
+    <handler>cats.im.server.handler.RequestHandler</handler>
+    <handler>cats.im.server.handler.MessageHandler</handler>
+</handlers>

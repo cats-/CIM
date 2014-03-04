@@ -1,0 +1,7 @@
+<formers>
+    <former>cats.im.server.former.ProfileFormer</former>
+    <former>cats.im.server.former.PopupFormer</former>
+    <former>cats.im.server.former.RequestFormer</former>
+    <former>cats.im.server.former.RequestResponseFormer</former>
+    <former>cats.im.server.former.ChangeFormer</former>
+</formers>
