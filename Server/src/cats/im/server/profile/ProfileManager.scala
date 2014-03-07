@@ -6,7 +6,7 @@ import cats.net.server.ClientConnection
 
 object ProfileManager {
 
-  private val File = new File("./Server/saved/profiles.dat")
+  private val File = new File("/res/saved/profiles.dat")
   
   private var all: String Map Profile = Map()
   
