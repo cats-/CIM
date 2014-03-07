@@ -11,8 +11,8 @@ class Server extends NonBlockingServer(4595) with ServerListener[Server]{
   def init(){
     Core.verbose = true
     Core.verboseExceptions = true
-    Core.addDataFormers(new File("./Server/xml/formers.xml"))
-    addHandlers(new File("./Server/xml/handlers.xml"))
+    Core.addDataFormers(getClass.getResourceAsStream("/res/xml/formers.xml"))
+    addHandlers(getClass.getResourceAsStream("/res/xml/handlers.xml"))
     Profile.registerCodec()
     ProfileManager.load()
     addListener(this)
