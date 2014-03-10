@@ -3,10 +3,11 @@ package cats.im.server.profile
 import java.io.{FileOutputStream, DataOutputStream, FileInputStream, DataInputStream, File}
 import cats.net.core.buffer.{BufferBuilder, Buffer}
 import cats.net.server.ClientConnection
+import cats.im.server.Server
 
 object ProfileManager {
 
-  private val File = new File("/res/saved/profiles.dat")
+  private val File = new File(classOf[Server].getResource("/res/saved/profiles.dat").getPath)
   
   private var all: String Map Profile = Map()
   
@@ -33,6 +34,7 @@ object ProfileManager {
   def ++(login: String, pass: String): Profile = {
     val prof = new Profile(login, pass)
     all += (prof.login.toLowerCase -> prof)
+    save()
     prof
   }
 
@@ -50,6 +52,7 @@ object ProfileManager {
     val count = buffer.getInt
     for(i <- 0 until count){
       val prof = buffer.getObject[Profile]
+      println(s"loaded ${prof.login}");
       all += (prof.login.toLowerCase -> prof)
     }
     in.close()
