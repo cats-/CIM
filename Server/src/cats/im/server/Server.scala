@@ -36,7 +36,8 @@ class Server extends NonBlockingServer(4595) with ServerListener[Server]{
 object Server{
 
   val Login: String = "CIM"
-  val Profile: Profile = new Profile(Login, null)
+  val Prof: Profile = new Profile(Login, null)
+  Prof.access = Profile.Access.Owner
 
   def main(args: Array[String]) = new Server().start()
 }

@@ -62,13 +62,13 @@ class Profile(val login: String, val pass: String) {
       send(offlineQueue.dequeue())
   }
 
-  def send(opcode: Short, args: Any*): Boolean = {
+  def send(opcode: Short, args: Object*): Boolean = {
     if(!connected){
-      val data = Core.getDataFormer[DataFormer](opcode).form(opcode, args)
+      val data = Core.getDataFormer[DataFormer](opcode).form(opcode, args.toArray)
       addToOfflineQueue(data)
       return false
     }
-    con.send(opcode, args)
+    con.send(opcode, args.toArray)
   }
 
   def send(data: Data): Boolean = {

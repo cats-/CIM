@@ -31,6 +31,7 @@ class LoginHandler extends ServerDataHandler[Server]{
     prof.status = prof.lastStatus
     prof.send(Opcodes.INIT, prof)
     prof.requests.values.foreach(prof.send(Opcodes.REQUEST, _))
+    prof.send(Opcodes.ADD_FRIEND, Server.Prof)
     prof.connectedFriends.foreach(
       f => {
         prof.send(Opcodes.ADD_FRIEND, f)
